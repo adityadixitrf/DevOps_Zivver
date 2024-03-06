@@ -5,17 +5,29 @@ Following are the steps to set up a microservice application on AWS using EKS (E
 1. Microservice Framework/Language: Flask (Python). I will create a simple REST API that returns a version number.
 
 2. **Python Application**
+   **app.py**
 
-from flask import Flask
+    from flask import Flask
+    
+    app = Flask(__name__)
+    
+    @app.route('/')
+    def version():
+        return '3.0.1'
+    
+    if __name__ == '__main__':
+        app.run(debug=True, host='0.0.0.0')
 
-app = Flask(__name__)
+4. **Docker file**
 
-@app.route('/')
-def version():
-    return '3.0.1'
+    From python:3.8-slim
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    WORKDIR /app
 
-3. **Docker file**
+    COPY requirement.txt .
+    RUN pip install --no-cache-dir -r requirements.txt
+    COPY ..
+    CMD ["python", "app.py"]
+  
+    
 
