@@ -31,6 +31,8 @@ Following are the steps to set up a microservice application on AWS using EKS (E
      COPY ..
 
      CMD ["python", "app.py"]
+
+   5. Build and Push Docker Image: Build the Docker image and push it to a container registry like Docker Hub or Amazon ECR.
   
     
 
