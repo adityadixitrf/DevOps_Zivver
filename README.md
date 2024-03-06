@@ -20,14 +20,17 @@ Following are the steps to set up a microservice application on AWS using EKS (E
 
 4. **Docker file**
 
-    From python:3.8-slim
+     From python:3.8-slim
 
-    WORKDIR /app
+     WORKDIR /app
 
-    COPY requirement.txt .
-    RUN pip install --no-cache-dir -r requirements.txt
-    COPY ..
-    CMD ["python", "app.py"]
+     COPY requirement.txt .
+
+     RUN pip install --no-cache-dir -r requirements.txt
+
+     COPY ..
+
+     CMD ["python", "app.py"]
   
     
 
