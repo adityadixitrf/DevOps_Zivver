@@ -28,3 +28,17 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-bala
 **configure IAM OIDC provider**
 
 eksctl utils associate-iam-oidc-provider --cluster demo-cluster --approve
+
+**setup alb**
+
+Download IAM Policy:->
+
+curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json
+
+Create IAM Policy:->
+
+aws iam create-policy \
+    --policy-name AWSLoadBalancerControllerIAMPolicy \
+    --policy-document file://iam_policy.json
+
+
