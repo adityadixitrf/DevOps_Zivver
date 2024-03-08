@@ -7,12 +7,12 @@ Install the following on your local machine
 
 **Install EKS**
 
-eksctl create cluster --name Zivvertask-cluster --region us-east-1 --fargate
+eksctl create cluster --name demo-cluster --region us-east-1 --fargate
 
-aws eks update-kubeconfig --name Zivvertask-cluster --region us-east-1
+aws eks update-kubeconfig --name demo-cluster --region us-east-1
 
 eksctl create fargateprofile \
-    --cluster Zivvertask-cluster \
+    --cluster demo-cluster \
     --region us-east-1 \
     --name alb-sample-app \
-    --namespace version-app
+    --namespace game-2048
